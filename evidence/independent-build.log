@@ -1,0 +1,187 @@
+mkdir -p build
+clang -DORCHID_HOST -std=c11 -fsanitize=address,undefined -Wall -Wextra -Werror test/time.c src/c/orchid.c -lm -o build/time-test
+./build/time-test
+86400 local-time states; nectar agrees with source within half a pixel at every native scale.
+python3 test/geometry.py
+basalt 72 source-position marks; exact throat/column mask; compiled tables and artwork verified
+chalk 72 source-position marks; exact throat/column mask; compiled tables and artwork verified
+diorite 72 source-position marks; exact throat/column mask; compiled tables and artwork verified
+emery 72 source-position marks; exact throat/column mask; compiled tables and artwork verified
+flint 72 source-position marks; exact throat/column mask; compiled tables and artwork verified
+gabbro 72 source-position marks; exact throat/column mask; compiled tables and artwork verified
+/Users/luke/.local/bin/pebble build --sdk 4.33.1
+Setting top to                           : /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock 
+Setting out to                           : /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build 
+Checking for program 'webpack'           : /Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/node_modules/.bin/webpack 
+Found Pebble SDK for gabbro in:          : /Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/sdk-core/pebble/gabbro 
+Checking for program 'gcc, cc'           : arm-none-eabi-gcc 
+Checking for program 'ar'                : arm-none-eabi-ar 
+Found Pebble SDK for flint in:           : /Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/sdk-core/pebble/flint 
+Checking for program 'gcc, cc'           : arm-none-eabi-gcc 
+Checking for program 'ar'                : arm-none-eabi-ar 
+Found Pebble SDK for emery in:           : /Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/sdk-core/pebble/emery 
+Checking for program 'gcc, cc'           : arm-none-eabi-gcc 
+Checking for program 'ar'                : arm-none-eabi-ar 
+Found Pebble SDK for diorite in:         : /Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/sdk-core/pebble/diorite 
+Checking for program 'gcc, cc'           : arm-none-eabi-gcc 
+Checking for program 'ar'                : arm-none-eabi-ar 
+Found Pebble SDK for chalk in:           : /Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/sdk-core/pebble/chalk 
+Checking for program 'gcc, cc'           : arm-none-eabi-gcc 
+Checking for program 'ar'                : arm-none-eabi-ar 
+Found Pebble SDK for basalt in:          : /Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/sdk-core/pebble/basalt 
+Checking for program 'gcc, cc'           : arm-none-eabi-gcc 
+Checking for program 'ar'                : arm-none-eabi-ar 
+'configure' finished successfully (0.176s)
+Waf: Entering directory `/private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build'
+[1/1] Creating message_key_header:  -> build/include/message_keys.auto.h
+[ 2/16] Compiling gabbro | reso: resources/menu-icon.png -> build/gabbro/resources/menu-icon.png.MENU_ICON.reso
+[ 3/16] Compiling gabbro | reso: resources/gabbro.bin -> build/gabbro/resources/gabbro.bin.ART.reso
+[ 4/16] Creating gabbro | /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/gabbro/appinfo.auto.c:  -> build/gabbro/appinfo.auto.c
+[ 5/16] Compiling gabbro | subst: /Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/sdk-core/pebble/common/pebble_app.ld.template -> build/gabbro/pebble_app.ld.auto
+[ 6/16] Creating gabbro | /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/appinfo.json:  -> build/appinfo.json
+[ 7/16] Processing gabbro | resource_ball: build/gabbro/resources/gabbro.bin.ART.reso build/gabbro/resources/menu-icon.png.MENU_ICON.reso -> build/gabbro/system_resources.resball
+[ 8/16] Compiling gabbro | generate_resource_id_definitions: build/gabbro/system_resources.resball -> build/gabbro/src/resource_ids.auto.c
+[ 9/16] Compiling gabbro | generate_pbpack: build/gabbro/system_resources.resball -> build/gabbro/app_resources.pbpack
+[10/16] Compiling gabbro | generate_resource_id_header: build/gabbro/system_resources.resball -> build/gabbro/src/resource_ids.auto.h
+[11/16] Compiling gabbro | c: build/gabbro/src/resource_ids.auto.c -> build/gabbro/src/resource_ids.auto.c.44.o
+[12/16] Compiling gabbro | c: src/c/orchid.c -> build/src/c/orchid.c.44.o
+[13/16] Compiling gabbro | c: src/c/main.c -> build/src/c/main.c.44.o
+[14/16] Compiling gabbro | c: build/gabbro/appinfo.auto.c -> build/gabbro/appinfo.auto.c.44.o
+[15/16] Linking gabbro | cprogram: build/src/c/main.c.44.o build/src/c/orchid.c.44.o build/gabbro/appinfo.auto.c.44.o build/gabbro/src/resource_ids.auto.c.44.o -> build/gabbro/pebble-app.elf
+/Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/toolchain/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: warning: /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/gabbro/pebble-app.elf has a LOAD segment with RWX permissions
+
+[16/16] Processing gabbro | memory_usage_report: build/gabbro/pebble-app.elf build/gabbro/app_resources.pbpack
+-------------------------------------------------------
+GABBRO APP MEMORY USAGE
+Total size of resources:        71824 bytes / 256.0KB
+Total footprint in RAM:         4750 bytes / 128.0KB
+Free RAM available (heap):      126322 bytes
+------------------------------------------------------- 
+[17/31] Compiling flint | reso: resources/menu-icon.png -> build/flint/resources/menu-icon.png.MENU_ICON.reso
+[18/31] Compiling flint | reso: resources/flint.bin -> build/flint/resources/flint.bin.ART.reso
+[19/31] Creating flint | /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/flint/appinfo.auto.c:  -> build/flint/appinfo.auto.c
+[20/31] Compiling flint | subst: /Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/sdk-core/pebble/common/pebble_app.ld.template -> build/flint/pebble_app.ld.auto
+[22/31] Processing flint | resource_ball: build/flint/resources/flint.bin.ART.reso build/flint/resources/menu-icon.png.MENU_ICON.reso -> build/flint/system_resources.resball
+[23/31] Compiling flint | generate_resource_id_definitions: build/flint/system_resources.resball -> build/flint/src/resource_ids.auto.c
+[24/31] Compiling flint | generate_pbpack: build/flint/system_resources.resball -> build/flint/app_resources.pbpack
+[25/31] Compiling flint | generate_resource_id_header: build/flint/system_resources.resball -> build/flint/src/resource_ids.auto.h
+[26/31] Compiling flint | c: src/c/orchid.c -> build/src/c/orchid.c.45.o
+[27/31] Compiling flint | c: src/c/main.c -> build/src/c/main.c.45.o
+[28/31] Compiling flint | c: build/flint/appinfo.auto.c -> build/flint/appinfo.auto.c.45.o
+[29/31] Compiling flint | c: build/flint/src/resource_ids.auto.c -> build/flint/src/resource_ids.auto.c.45.o
+[30/31] Linking flint | cprogram: build/src/c/main.c.45.o build/src/c/orchid.c.45.o build/flint/appinfo.auto.c.45.o build/flint/src/resource_ids.auto.c.45.o -> build/flint/pebble-app.elf
+/Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/toolchain/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: warning: /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/flint/pebble-app.elf has a LOAD segment with RWX permissions
+
+[31/31] Processing flint | memory_usage_report: build/flint/pebble-app.elf build/flint/app_resources.pbpack
+-------------------------------------------------------
+FLINT APP MEMORY USAGE
+Total size of resources:        28416 bytes / 256.0KB
+Total footprint in RAM:         3966 bytes / 64.0KB
+Free RAM available (heap):      61570 bytes
+------------------------------------------------------- 
+[32/46] Compiling emery | reso: resources/menu-icon.png -> build/emery/resources/menu-icon.png.MENU_ICON.reso
+[33/46] Compiling emery | reso: resources/emery.bin -> build/emery/resources/emery.bin.ART.reso
+[34/46] Creating emery | /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/emery/appinfo.auto.c:  -> build/emery/appinfo.auto.c
+[35/46] Compiling emery | subst: /Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/sdk-core/pebble/common/pebble_app.ld.template -> build/emery/pebble_app.ld.auto
+[37/46] Processing emery | resource_ball: build/emery/resources/emery.bin.ART.reso build/emery/resources/menu-icon.png.MENU_ICON.reso -> build/emery/system_resources.resball
+[38/46] Compiling emery | generate_resource_id_definitions: build/emery/system_resources.resball -> build/emery/src/resource_ids.auto.c
+[39/46] Compiling emery | generate_pbpack: build/emery/system_resources.resball -> build/emery/app_resources.pbpack
+[40/46] Compiling emery | generate_resource_id_header: build/emery/system_resources.resball -> build/emery/src/resource_ids.auto.h
+[41/46] Compiling emery | c: build/emery/src/resource_ids.auto.c -> build/emery/src/resource_ids.auto.c.46.o
+[42/46] Compiling emery | c: src/c/orchid.c -> build/src/c/orchid.c.46.o
+[43/46] Compiling emery | c: src/c/main.c -> build/src/c/main.c.46.o
+[44/46] Compiling emery | c: build/emery/appinfo.auto.c -> build/emery/appinfo.auto.c.46.o
+[45/46] Linking emery | cprogram: build/src/c/main.c.46.o build/src/c/orchid.c.46.o build/emery/appinfo.auto.c.46.o build/emery/src/resource_ids.auto.c.46.o -> build/emery/pebble-app.elf
+/Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/toolchain/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: warning: /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/emery/pebble-app.elf has a LOAD segment with RWX permissions
+
+[46/46] Processing emery | memory_usage_report: build/emery/pebble-app.elf build/emery/app_resources.pbpack
+-------------------------------------------------------
+EMERY APP MEMORY USAGE
+Total size of resources:        49824 bytes / 256.0KB
+Total footprint in RAM:         4482 bytes / 128.0KB
+Free RAM available (heap):      126590 bytes
+------------------------------------------------------- 
+[47/61] Compiling diorite | reso: resources/menu-icon.png -> build/diorite/resources/menu-icon.png.MENU_ICON.reso
+[48/61] Compiling diorite | reso: resources/diorite.bin -> build/diorite/resources/diorite.bin.ART.reso
+[49/61] Creating diorite | /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/diorite/appinfo.auto.c:  -> build/diorite/appinfo.auto.c
+[50/61] Compiling diorite | subst: /Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/sdk-core/pebble/common/pebble_app.ld.template -> build/diorite/pebble_app.ld.auto
+[52/61] Processing diorite | resource_ball: build/diorite/resources/diorite.bin.ART.reso build/diorite/resources/menu-icon.png.MENU_ICON.reso -> build/diorite/system_resources.resball
+[53/61] Compiling diorite | generate_resource_id_definitions: build/diorite/system_resources.resball -> build/diorite/src/resource_ids.auto.c
+[54/61] Compiling diorite | generate_pbpack: build/diorite/system_resources.resball -> build/diorite/app_resources.pbpack
+[55/61] Compiling diorite | generate_resource_id_header: build/diorite/system_resources.resball -> build/diorite/src/resource_ids.auto.h
+[56/61] Compiling diorite | c: build/diorite/src/resource_ids.auto.c -> build/diorite/src/resource_ids.auto.c.47.o
+[57/61] Compiling diorite | c: src/c/orchid.c -> build/src/c/orchid.c.47.o
+[58/61] Compiling diorite | c: src/c/main.c -> build/src/c/main.c.47.o
+[59/61] Compiling diorite | c: build/diorite/appinfo.auto.c -> build/diorite/appinfo.auto.c.47.o
+[60/61] Linking diorite | cprogram: build/src/c/main.c.47.o build/src/c/orchid.c.47.o build/diorite/appinfo.auto.c.47.o build/diorite/src/resource_ids.auto.c.47.o -> build/diorite/pebble-app.elf
+/Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/toolchain/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: warning: /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/diorite/pebble-app.elf has a LOAD segment with RWX permissions
+
+[61/61] Processing diorite | memory_usage_report: build/diorite/pebble-app.elf build/diorite/app_resources.pbpack
+-------------------------------------------------------
+DIORITE APP MEMORY USAGE
+Total size of resources:        28416 bytes / 256.0KB
+Total footprint in RAM:         3966 bytes / 64.0KB
+Free RAM available (heap):      61570 bytes
+------------------------------------------------------- 
+[62/76] Compiling chalk | reso: resources/menu-icon.png -> build/chalk/resources/menu-icon.png.MENU_ICON.reso
+[63/76] Compiling chalk | reso: resources/chalk.bin -> build/chalk/resources/chalk.bin.ART.reso
+[64/76] Creating chalk | /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/chalk/appinfo.auto.c:  -> build/chalk/appinfo.auto.c
+[65/76] Compiling chalk | subst: /Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/sdk-core/pebble/common/pebble_app.ld.template -> build/chalk/pebble_app.ld.auto
+[67/76] Processing chalk | resource_ball: build/chalk/resources/chalk.bin.ART.reso build/chalk/resources/menu-icon.png.MENU_ICON.reso -> build/chalk/system_resources.resball
+[68/76] Compiling chalk | generate_resource_id_definitions: build/chalk/system_resources.resball -> build/chalk/src/resource_ids.auto.c
+[69/76] Compiling chalk | generate_pbpack: build/chalk/system_resources.resball -> build/chalk/app_resources.pbpack
+[70/76] Compiling chalk | generate_resource_id_header: build/chalk/system_resources.resball -> build/chalk/src/resource_ids.auto.h
+[71/76] Compiling chalk | c: build/chalk/src/resource_ids.auto.c -> build/chalk/src/resource_ids.auto.c.48.o
+[72/76] Compiling chalk | c: src/c/orchid.c -> build/src/c/orchid.c.48.o
+[73/76] Compiling chalk | c: src/c/main.c -> build/src/c/main.c.48.o
+[74/76] Compiling chalk | c: build/chalk/appinfo.auto.c -> build/chalk/appinfo.auto.c.48.o
+[75/76] Linking chalk | cprogram: build/src/c/main.c.48.o build/src/c/orchid.c.48.o build/chalk/appinfo.auto.c.48.o build/chalk/src/resource_ids.auto.c.48.o -> build/chalk/pebble-app.elf
+/Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/toolchain/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: warning: /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/chalk/pebble-app.elf has a LOAD segment with RWX permissions
+
+[76/76] Processing chalk | memory_usage_report: build/chalk/pebble-app.elf build/chalk/app_resources.pbpack
+-------------------------------------------------------
+CHALK APP MEMORY USAGE
+Total size of resources:        36624 bytes / 256.0KB
+Total footprint in RAM:         4074 bytes / 64.0KB
+Free RAM available (heap):      61462 bytes
+------------------------------------------------------- 
+[77/91] Compiling basalt | reso: resources/menu-icon.png -> build/basalt/resources/menu-icon.png.MENU_ICON.reso
+[78/91] Compiling basalt | reso: resources/basalt.bin -> build/basalt/resources/basalt.bin.ART.reso
+[79/91] Creating basalt | /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/basalt/appinfo.auto.c:  -> build/basalt/appinfo.auto.c
+[80/91] Compiling basalt | subst: /Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/sdk-core/pebble/common/pebble_app.ld.template -> build/basalt/pebble_app.ld.auto
+[82/91] Processing basalt | resource_ball: build/basalt/resources/basalt.bin.ART.reso build/basalt/resources/menu-icon.png.MENU_ICON.reso -> build/basalt/system_resources.resball
+[83/91] Compiling basalt | generate_resource_id_definitions: build/basalt/system_resources.resball -> build/basalt/src/resource_ids.auto.c
+[84/91] Compiling basalt | generate_pbpack: build/basalt/system_resources.resball -> build/basalt/app_resources.pbpack
+[85/91] Compiling basalt | generate_resource_id_header: build/basalt/system_resources.resball -> build/basalt/src/resource_ids.auto.h
+[86/91] Compiling basalt | c: src/c/orchid.c -> build/src/c/orchid.c.49.o
+[87/91] Compiling basalt | c: src/c/main.c -> build/src/c/main.c.49.o
+[88/91] Compiling basalt | c: build/basalt/appinfo.auto.c -> build/basalt/appinfo.auto.c.49.o
+[89/91] Compiling basalt | c: build/basalt/src/resource_ids.auto.c -> build/basalt/src/resource_ids.auto.c.49.o
+[90/91] Linking basalt | cprogram: build/src/c/main.c.49.o build/src/c/orchid.c.49.o build/basalt/appinfo.auto.c.49.o build/basalt/src/resource_ids.auto.c.49.o -> build/basalt/pebble-app.elf
+/Users/luke/Library/Application Support/Pebble SDK/SDKs/4.33.1/toolchain/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: warning: /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/basalt/pebble-app.elf has a LOAD segment with RWX permissions
+
+[91/91] Processing basalt | memory_usage_report: build/basalt/pebble-app.elf build/basalt/app_resources.pbpack
+-------------------------------------------------------
+BASALT APP MEMORY USAGE
+Total size of resources:        28416 bytes / 256.0KB
+Total footprint in RAM:         3978 bytes / 64.0KB
+Free RAM available (heap):      61558 bytes
+------------------------------------------------------- 
+[ 92/104] Compiling gabbro | /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/gabbro/pebble-app.raw.bin: build/gabbro/pebble-app.elf -> build/gabbro/pebble-app.raw.bin
+[ 93/104] Compiling flint | /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/flint/pebble-app.raw.bin: build/flint/pebble-app.elf -> build/flint/pebble-app.raw.bin
+[ 94/104] Compiling emery | /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/emery/pebble-app.raw.bin: build/emery/pebble-app.elf -> build/emery/pebble-app.raw.bin
+[ 95/104] Compiling diorite | /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/diorite/pebble-app.raw.bin: build/diorite/pebble-app.elf -> build/diorite/pebble-app.raw.bin
+[ 96/104] Compiling chalk | /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/chalk/pebble-app.raw.bin: build/chalk/pebble-app.elf -> build/chalk/pebble-app.raw.bin
+[ 97/104] Compiling basalt | /private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build/basalt/pebble-app.raw.bin: build/basalt/pebble-app.elf -> build/basalt/pebble-app.raw.bin
+[ 98/104] Processing flint | inject-metadata: build/flint/pebble-app.raw.bin build/flint/pebble-app.elf build/flint/app_resources.pbpack -> build/flint/pebble-app.bin
+[ 99/104] Processing emery | inject-metadata: build/emery/pebble-app.raw.bin build/emery/pebble-app.elf build/emery/app_resources.pbpack -> build/emery/pebble-app.bin
+[100/104] Processing diorite | inject-metadata: build/diorite/pebble-app.raw.bin build/diorite/pebble-app.elf build/diorite/app_resources.pbpack -> build/diorite/pebble-app.bin
+[101/104] Processing gabbro | inject-metadata: build/gabbro/pebble-app.raw.bin build/gabbro/pebble-app.elf build/gabbro/app_resources.pbpack -> build/gabbro/pebble-app.bin
+[102/104] Processing basalt | inject-metadata: build/basalt/pebble-app.raw.bin build/basalt/pebble-app.elf build/basalt/app_resources.pbpack -> build/basalt/pebble-app.bin
+[103/104] Processing chalk | inject-metadata: build/chalk/pebble-app.raw.bin build/chalk/pebble-app.elf build/chalk/app_resources.pbpack -> build/chalk/pebble-app.bin
+[104/104] Creating app_bundle:  -> build/orchid-clock.pbw
+Waf: Leaving directory `/private/var/folders/kl/6kmp_kld6hx_70h5kqwb97k00000gn/T/orchid-clock-independent-iabo1u6q/orchid-clock/build'
+'build' finished successfully (0.992s)
+
+[1m[33mA new pebble-tool is available: v5.0.40 (current: v5.0.39)[0m
+[33m  Update with: uv tool upgrade pebble-tool[0m

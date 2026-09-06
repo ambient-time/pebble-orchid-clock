@@ -1,0 +1,100 @@
+{
+  "platform": "emery",
+  "pbwSHA256": "22afcbd93b0c86fb77eadaa4df6f6a6652b2ee7162beee46a203dcad8b271c45",
+  "capturedAt": "2026-09-06T07:40:15.183693+00:00",
+  "secondsChanged": true,
+  "naturalNoonRollover": true,
+  "naturalMidnightRollover": true,
+  "cadenceFrames": {
+    "idle": [
+      19,
+      20,
+      21
+    ],
+    "observedFrames": 4,
+    "observedWallSeconds": 4.21,
+    "policy": "one redraw per second; no animation timer"
+  },
+  "frames": [
+    "evidence/emery-hero.png",
+    "evidence/emery-later.png",
+    "evidence/emery-noon.png",
+    "evidence/emery-quarter.png",
+    "evidence/emery-evening.png",
+    "evidence/emery-before-noon.png",
+    "evidence/emery-noon-rollover.png",
+    "evidence/emery-before-midnight.png",
+    "evidence/emery-midnight-rollover.png",
+    "evidence/emery-cadence.png"
+  ],
+  "poses": {
+    "boot": {
+      "requestedTime": null,
+      "latestFrameLog": null
+    },
+    "hero": {
+      "requestedTime": "23:27:30",
+      "latestFrameLog": "Orchid time=23:27:30 ms=6 heap=126356 frames=5"
+    },
+    "later": {
+      "requestedTime": null,
+      "latestFrameLog": "Orchid time=23:27:32 ms=6 heap=126356 frames=7"
+    },
+    "noon": {
+      "requestedTime": "12:00:00",
+      "latestFrameLog": "Orchid time=12:00:00 ms=5 heap=126356 frames=8"
+    },
+    "quarter": {
+      "requestedTime": "03:15:45",
+      "latestFrameLog": "Orchid time=03:15:45 ms=5 heap=126356 frames=9"
+    },
+    "evening": {
+      "requestedTime": "18:30:30",
+      "latestFrameLog": "Orchid time=18:30:30 ms=5 heap=126356 frames=10"
+    },
+    "before-noon": {
+      "requestedTime": "11:59:58",
+      "latestFrameLog": "Orchid time=11:59:58 ms=5 heap=126356 frames=11"
+    },
+    "noon-rollover": {
+      "requestedTime": null,
+      "latestFrameLog": "Orchid time=12:00:00 ms=5 heap=126356 frames=13"
+    },
+    "before-midnight": {
+      "requestedTime": "23:59:58",
+      "latestFrameLog": "Orchid time=23:59:58 ms=6 heap=126356 frames=14"
+    },
+    "midnight-rollover": {
+      "requestedTime": null,
+      "latestFrameLog": "Orchid time=00:00:00 ms=5 heap=126356 frames=16"
+    },
+    "cadence": {
+      "requestedTime": "23:27:30",
+      "latestFrameLog": "Orchid time=23:27:30 ms=5 heap=126356 frames=17"
+    }
+  },
+  "logs": [
+    "Orchid time=07:39:56 ms=10 heap=126276 frames=1",
+    "Orchid time=07:39:56 ms=6 heap=126356 frames=2",
+    "Orchid time=07:39:56 ms=5 heap=126356 frames=3",
+    "Orchid time=07:39:57 ms=6 heap=126356 frames=4",
+    "Orchid time=23:27:30 ms=6 heap=126356 frames=5",
+    "Orchid time=23:27:31 ms=6 heap=126356 frames=6",
+    "Orchid time=23:27:32 ms=6 heap=126356 frames=7",
+    "Orchid time=12:00:00 ms=5 heap=126356 frames=8",
+    "Orchid time=03:15:45 ms=5 heap=126356 frames=9",
+    "Orchid time=18:30:30 ms=5 heap=126356 frames=10",
+    "Orchid time=11:59:58 ms=5 heap=126356 frames=11",
+    "Orchid time=11:59:59 ms=6 heap=126356 frames=12",
+    "Orchid time=12:00:00 ms=5 heap=126356 frames=13",
+    "Orchid time=23:59:58 ms=6 heap=126356 frames=14",
+    "Orchid time=23:59:59 ms=5 heap=126356 frames=15",
+    "Orchid time=00:00:00 ms=5 heap=126356 frames=16",
+    "Orchid time=23:27:30 ms=5 heap=126356 frames=17",
+    "Orchid time=23:27:31 ms=6 heap=126356 frames=18",
+    "Orchid time=23:27:32 ms=6 heap=126356 frames=19",
+    "Orchid time=23:27:33 ms=5 heap=126356 frames=20",
+    "Orchid time=23:27:34 ms=6 heap=126356 frames=21"
+  ],
+  "limits": "Isolated emulator. Frames require visual inspection; not physical-device power/readability evidence."
+}

@@ -1,0 +1,22 @@
+{
+  "sourceSHA256": "41af7d27088e6b0d3a2ee872969c04add7f6927190b6b250b93f830115bd7b86",
+  "checks": {
+    "sourceMorphology": "The native face keeps five fixed wings, the lower petal, the center column, and source mark coordinates.",
+    "timeMapping": "Twelve hour marks, sixty minute positions, and second-proportional nectar; noon and midnight use twelve hour marks.",
+    "hostTests": "All 86,400 local-time states; source nectar endpoint within half a pixel; all six source-coordinate, compiled-table, resource, and mask checks pass.",
+    "build": "SDK 4.33.1 build passes for basalt, chalk, diorite, emery, flint, and gabbro.",
+    "memory": "One 260-byte raster row; compile-time width guard; exact resource length and row-read checks; framebuffer released on both success and short read.",
+    "graphics": "Framebuffer writes respect round row bounds. Native time marks use Pebble drawing APIs; the asset generator prepares geometry at build time.",
+    "cadence": "Native reports record four frames over approximately 4.2 seconds on every target.",
+    "native": "The same final PBW installed and rendered on all six native emulators; seconds changed and noon/midnight rolled over naturally."
+  },
+  "resolved": [
+    {
+      "issue": "The mask combined throat pixels on both sides of the center column into one interval.",
+      "change": "Store up to two row spans so nectar cannot cover the column.",
+      "verification": "Independent De Casteljau evaluation of the captured source path matches every mask pixel on all six displays."
+    }
+  ],
+  "limits": "Physical-watch battery and minute-spot readability remain unmeasured. The small local-time readout gives the time directly.",
+  "pbwSHA256": "22afcbd93b0c86fb77eadaa4df6f6a6652b2ee7162beee46a203dcad8b271c45"
+}

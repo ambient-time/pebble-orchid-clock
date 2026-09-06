@@ -1,0 +1,100 @@
+{
+  "platform": "basalt",
+  "pbwSHA256": "22afcbd93b0c86fb77eadaa4df6f6a6652b2ee7162beee46a203dcad8b271c45",
+  "capturedAt": "2026-09-06T07:39:41.920646+00:00",
+  "secondsChanged": true,
+  "naturalNoonRollover": true,
+  "naturalMidnightRollover": true,
+  "cadenceFrames": {
+    "idle": [
+      19,
+      20,
+      21
+    ],
+    "observedFrames": 4,
+    "observedWallSeconds": 4.209,
+    "policy": "one redraw per second; no animation timer"
+  },
+  "frames": [
+    "evidence/basalt-hero.png",
+    "evidence/basalt-later.png",
+    "evidence/basalt-noon.png",
+    "evidence/basalt-quarter.png",
+    "evidence/basalt-evening.png",
+    "evidence/basalt-before-noon.png",
+    "evidence/basalt-noon-rollover.png",
+    "evidence/basalt-before-midnight.png",
+    "evidence/basalt-midnight-rollover.png",
+    "evidence/basalt-cadence.png"
+  ],
+  "poses": {
+    "boot": {
+      "requestedTime": null,
+      "latestFrameLog": null
+    },
+    "hero": {
+      "requestedTime": "23:27:30",
+      "latestFrameLog": "Orchid time=23:27:30 ms=23 heap=61324 frames=5"
+    },
+    "later": {
+      "requestedTime": null,
+      "latestFrameLog": "Orchid time=23:27:32 ms=19 heap=61324 frames=7"
+    },
+    "noon": {
+      "requestedTime": "12:00:00",
+      "latestFrameLog": "Orchid time=12:00:00 ms=28 heap=61324 frames=8"
+    },
+    "quarter": {
+      "requestedTime": "03:15:45",
+      "latestFrameLog": "Orchid time=03:15:45 ms=7 heap=61324 frames=9"
+    },
+    "evening": {
+      "requestedTime": "18:30:30",
+      "latestFrameLog": "Orchid time=18:30:30 ms=24 heap=61324 frames=10"
+    },
+    "before-noon": {
+      "requestedTime": "11:59:58",
+      "latestFrameLog": "Orchid time=11:59:58 ms=8 heap=61324 frames=11"
+    },
+    "noon-rollover": {
+      "requestedTime": null,
+      "latestFrameLog": "Orchid time=12:00:00 ms=20 heap=61324 frames=13"
+    },
+    "before-midnight": {
+      "requestedTime": "23:59:58",
+      "latestFrameLog": "Orchid time=23:59:58 ms=12 heap=61324 frames=14"
+    },
+    "midnight-rollover": {
+      "requestedTime": null,
+      "latestFrameLog": "Orchid time=00:00:00 ms=24 heap=61324 frames=16"
+    },
+    "cadence": {
+      "requestedTime": "23:27:30",
+      "latestFrameLog": "Orchid time=23:27:30 ms=24 heap=61324 frames=17"
+    }
+  },
+  "logs": [
+    "Orchid time=00:39:21 ms=31 heap=61244 frames=1",
+    "Orchid time=00:39:21 ms=4 heap=61324 frames=2",
+    "Orchid time=00:39:22 ms=20 heap=61324 frames=3",
+    "Orchid time=00:39:23 ms=16 heap=61324 frames=4",
+    "Orchid time=23:27:30 ms=23 heap=61324 frames=5",
+    "Orchid time=23:27:31 ms=12 heap=61324 frames=6",
+    "Orchid time=23:27:32 ms=19 heap=61324 frames=7",
+    "Orchid time=12:00:00 ms=28 heap=61324 frames=8",
+    "Orchid time=03:15:45 ms=7 heap=61324 frames=9",
+    "Orchid time=18:30:30 ms=24 heap=61324 frames=10",
+    "Orchid time=11:59:58 ms=8 heap=61324 frames=11",
+    "Orchid time=11:59:59 ms=23 heap=61324 frames=12",
+    "Orchid time=12:00:00 ms=20 heap=61324 frames=13",
+    "Orchid time=23:59:58 ms=12 heap=61324 frames=14",
+    "Orchid time=23:59:59 ms=24 heap=61324 frames=15",
+    "Orchid time=00:00:00 ms=24 heap=61324 frames=16",
+    "Orchid time=23:27:30 ms=24 heap=61324 frames=17",
+    "Orchid time=23:27:31 ms=20 heap=61324 frames=18",
+    "Orchid time=23:27:32 ms=16 heap=61324 frames=19",
+    "Orchid time=23:27:33 ms=24 heap=61324 frames=20",
+    "Orchid time=23:27:34 ms=23 heap=61324 frames=21"
+  ],
+  "limits": "Isolated emulator. Frames require visual inspection; not physical-device power/readability evidence."
+}

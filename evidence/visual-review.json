@@ -1,0 +1,67 @@
+{
+  "pbwSHA256": "22afcbd93b0c86fb77eadaa4df6f6a6652b2ee7162beee46a203dcad8b271c45",
+  "platforms": {
+    "basalt": {
+      "inspectedAtNativeSize": [
+        "hero",
+        "midnight-rollover"
+      ],
+      "silhouetteAndReadoutClear": true,
+      "hourMarksDistinct": true,
+      "nectarWithinThroat": true,
+      "clippedTimeOrMarks": false
+    },
+    "chalk": {
+      "inspectedAtNativeSize": [
+        "hero",
+        "noon"
+      ],
+      "silhouetteAndReadoutClear": true,
+      "hourMarksDistinct": true,
+      "nectarWithinThroat": true,
+      "clippedTimeOrMarks": false
+    },
+    "diorite": {
+      "inspectedAtNativeSize": [
+        "hero",
+        "quarter"
+      ],
+      "silhouetteAndReadoutClear": true,
+      "hourMarksDistinct": true,
+      "nectarWithinThroat": true,
+      "clippedTimeOrMarks": false
+    },
+    "emery": {
+      "inspectedAtNativeSize": [
+        "hero",
+        "evening"
+      ],
+      "silhouetteAndReadoutClear": true,
+      "hourMarksDistinct": true,
+      "nectarWithinThroat": true,
+      "clippedTimeOrMarks": false
+    },
+    "flint": {
+      "inspectedAtNativeSize": [
+        "hero",
+        "noon"
+      ],
+      "silhouetteAndReadoutClear": true,
+      "hourMarksDistinct": true,
+      "nectarWithinThroat": true,
+      "clippedTimeOrMarks": false
+    },
+    "gabbro": {
+      "inspectedAtNativeSize": [
+        "hero",
+        "quarter"
+      ],
+      "silhouetteAndReadoutClear": true,
+      "hourMarksDistinct": true,
+      "nectarWithinThroat": true,
+      "clippedTimeOrMarks": false
+    }
+  },
+  "finding": "The source moth-orchid silhouette survives all six displays. Color nectar uses pink and gold; monochrome uses a dark texture. Hour marks remain distinct. Minute spots are fine detail, with the local-time readout below the flower.",
+  "limits": "Native emulator screenshots, not physical-watch viewing or battery measurements."
+}

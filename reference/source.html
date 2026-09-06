@@ -1,0 +1,515 @@
+<!doctype html>
+<!--
+  Quick Take: A quiet moth orchid: twelve wing freckles blush for the hour, labellum spots settle for the minute.
+  Stack: Self-contained; no external libraries.
+  Source: https://datapoems.io/clocks/orchid-clock/
+  License: MIT
+  Author: Luke Steuber
+-->
+<html class="collection-export embed" lang="en">
+<head>
+<script>window.CLOCK_COLLECTION_EXPORT=true;</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Orchid Clock — Quiet Specimen</title>
+<meta name="description" content="A quiet moth orchid: twelve wing freckles blush for the hour, labellum spots settle for the minute, and throat nectar rises for the second. No petal hands. Five soft orchid palettes.">
+<meta name="theme-color" content="#c5c0b2">
+<style>
+:root { color-scheme: light; --focus: #8b4a5e; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #c9c4b8; }
+canvas {
+  display: block; width: 100%; height: 100%;
+  touch-action: manipulation; outline: none; cursor: pointer;
+}
+canvas:focus-visible { outline: 2px solid var(--focus); outline-offset: -6px; }
+.sr {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+@media (prefers-reduced-motion: reduce) { canvas { cursor: default; } }
+.help{position:fixed;top:max(.6rem,env(safe-area-inset-top));right:max(.6rem,env(safe-area-inset-right));z-index:30;display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;color:#c9a0d0;opacity:.55;text-decoration:none;font:700 19px/1 ui-sans-serif,system-ui,sans-serif;border-radius:6px;transition:opacity .25s ease}
+.help:hover,.help:focus-visible{opacity:1}
+.help:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+html.embed .help{display:none!important}
+</style>
+<script>try{if(new URLSearchParams(location.search).get("embed")==="1"||window.self!==window.top)document.documentElement.classList.add("embed")}catch(e){}</script>
+<style data-collection-chrome>
+.dev-controls,
+.study-controls,
+.help,
+.back,
+.about-backdrop,
+.about-modal,
+.about-card,
+.gate-controls,
+a[aria-label*='about' i],
+button[aria-label*='about' i],
+a[aria-label*='help' i],
+button[aria-label*='help' i],
+a[aria-label*='all clocks' i],
+button[aria-label*='all clocks' i],
+a[aria-label*='clock gallery' i],
+button[aria-label*='clock gallery' i]{display:none!important}
+</style>
+</head>
+<body class="collection-export embed">
+<a class="help" href="https://datapoems.io/clocks/" aria-label="All clocks">?</a>
+<canvas id="c" tabindex="0" role="img" aria-label="Orchid clock loading local time."></canvas>
+<time id="exact" class="sr"></time>
+<p id="live" class="sr" aria-live="polite"></p>
+<script>
+(function () {
+  'use strict';
+
+  var TAU = Math.PI * 2;
+  var HOUR_SPOTS = 12;
+  var MINUTE_SPOTS = 60;
+
+  var THEMES = [
+    {
+      name: 'Phalaenopsis Cream',
+      bg: ['#e2dbd0', '#c9c4b8', '#a8a496'],
+      mist: 'rgba(255, 248, 240, 0.1)',
+      grain: 'rgba(90, 80, 70, 0.035)',
+      focus: '#8b4a5e',
+      themeColor: '#c5c0b2',
+      cream: '#f6f0ec',
+      blush: '#ead8dc',
+      vein: 'rgba(140, 90, 105, 0.14)',
+      lip: '#f3ebea',
+      throatDeep: '#8a4558',
+      throatMid: '#b86a80',
+      throatPale: 'rgba(220, 170, 185, 0.18)',
+      freckle: 'rgba(150, 70, 95, 0.55)',
+      freckleSoft: 'rgba(150, 70, 95, 0.12)',
+      spot: 'rgba(130, 55, 80, 0.5)',
+      spotEmpty: 'rgba(130, 55, 80, 0.08)',
+      nectar: '#e0c878',
+      nectarHi: 'rgba(255, 245, 210, 0.55)',
+      columnTop: '#f5f0ea',
+      columnBot: '#d8c8b8',
+      pollinia: 'rgba(210, 180, 90, 0.7)',
+      shadow: 'rgba(70, 55, 60, 0.16)'
+    },
+    {
+      name: 'Cattleya Flame',
+      bg: ['#edd0bc', '#d8b098', '#b89070'],
+      mist: 'rgba(255, 230, 210, 0.1)',
+      grain: 'rgba(100, 60, 40, 0.04)',
+      focus: '#b04850',
+      themeColor: '#d4a888',
+      cream: '#fff0ea',
+      blush: '#f0c8bc',
+      vein: 'rgba(160, 60, 70, 0.16)',
+      lip: '#ffe8e0',
+      throatDeep: '#8a2830',
+      throatMid: '#c05058',
+      throatPale: 'rgba(240, 160, 145, 0.2)',
+      freckle: 'rgba(170, 50, 60, 0.55)',
+      freckleSoft: 'rgba(170, 50, 60, 0.12)',
+      spot: 'rgba(150, 40, 50, 0.5)',
+      spotEmpty: 'rgba(150, 40, 50, 0.08)',
+      nectar: '#e8a848',
+      nectarHi: 'rgba(255, 230, 180, 0.55)',
+      columnTop: '#fff4ee',
+      columnBot: '#e0c4b0',
+      pollinia: 'rgba(230, 170, 70, 0.75)',
+      shadow: 'rgba(90, 50, 40, 0.18)'
+    },
+    {
+      name: 'Burgundy Slipper',
+      bg: ['#4a3840', '#342830', '#1e161c'],
+      mist: 'rgba(200, 160, 150, 0.05)',
+      grain: 'rgba(200, 160, 150, 0.03)',
+      focus: '#c89068',
+      themeColor: '#3e2c34',
+      cream: '#e4d0d4',
+      blush: '#a87080',
+      vein: 'rgba(200, 130, 140, 0.18)',
+      lip: '#d4b8c0',
+      throatDeep: '#3a1018',
+      throatMid: '#6a2838',
+      throatPale: 'rgba(160, 80, 100, 0.2)',
+      freckle: 'rgba(210, 120, 130, 0.55)',
+      freckleSoft: 'rgba(210, 120, 130, 0.12)',
+      spot: 'rgba(190, 100, 115, 0.5)',
+      spotEmpty: 'rgba(190, 100, 115, 0.1)',
+      nectar: '#d8a858',
+      nectarHi: 'rgba(255, 220, 160, 0.5)',
+      columnTop: '#e4d4cc',
+      columnBot: '#b09890',
+      pollinia: 'rgba(200, 160, 70, 0.75)',
+      shadow: 'rgba(8, 4, 6, 0.35)'
+    },
+    {
+      name: 'Lime Slipper',
+      bg: ['#d0dca0', '#b0c078', '#809050'],
+      mist: 'rgba(240, 255, 210, 0.1)',
+      grain: 'rgba(60, 70, 30, 0.04)',
+      focus: '#5a7830',
+      themeColor: '#a8bc68',
+      cream: '#f6f8e0',
+      blush: '#dce8a8',
+      vein: 'rgba(80, 100, 40, 0.16)',
+      lip: '#eef4d8',
+      throatDeep: '#4a6028',
+      throatMid: '#7a9838',
+      throatPale: 'rgba(190, 220, 120, 0.22)',
+      freckle: 'rgba(90, 110, 40, 0.5)',
+      freckleSoft: 'rgba(90, 110, 40, 0.12)',
+      spot: 'rgba(80, 100, 35, 0.48)',
+      spotEmpty: 'rgba(80, 100, 35, 0.08)',
+      nectar: '#d8c850',
+      nectarHi: 'rgba(255, 250, 190, 0.55)',
+      columnTop: '#f4f0e4',
+      columnBot: '#c8c4a0',
+      pollinia: 'rgba(200, 180, 70, 0.75)',
+      shadow: 'rgba(50, 60, 25, 0.16)'
+    },
+    {
+      name: 'Brassavola Ghost',
+      bg: ['#d8e0d8', '#b8c4bc', '#8e9c94'],
+      mist: 'rgba(240, 250, 245, 0.12)',
+      grain: 'rgba(50, 70, 60, 0.035)',
+      focus: '#5a7868',
+      themeColor: '#b4c0b8',
+      cream: '#f6faf6',
+      blush: '#dce6dc',
+      vein: 'rgba(70, 100, 85, 0.14)',
+      lip: '#eef4ee',
+      throatDeep: '#3a5044',
+      throatMid: '#689080',
+      throatPale: 'rgba(170, 200, 185, 0.2)',
+      freckle: 'rgba(70, 110, 95, 0.48)',
+      freckleSoft: 'rgba(70, 110, 95, 0.1)',
+      spot: 'rgba(60, 100, 85, 0.45)',
+      spotEmpty: 'rgba(60, 100, 85, 0.08)',
+      nectar: '#c0d070',
+      nectarHi: 'rgba(240, 255, 200, 0.5)',
+      columnTop: '#f0f4f0',
+      columnBot: '#c4ccc0',
+      pollinia: 'rgba(180, 195, 100, 0.7)',
+      shadow: 'rgba(40, 55, 50, 0.14)'
+    }
+  ];
+
+  var c = document.getElementById('c');
+  var x = c.getContext('2d');
+  var exact = document.getElementById('exact');
+  var live = document.getElementById('live');
+  var W = 1, H = 1, D = 1, last = '', raf = 0;
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var themeIndex = 0;
+
+  try {
+    themeIndex = parseInt(localStorage.getItem('orchid.theme') || '0', 10) || 0;
+  } catch (ignore) {}
+  themeIndex = ((themeIndex % THEMES.length) + THEMES.length) % THEMES.length;
+
+  function th() { return THEMES[themeIndex]; }
+
+  function applyTheme() {
+    var t = th();
+    document.body.style.background = t.bg[1];
+    document.documentElement.style.setProperty('--focus', t.focus);
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', t.themeColor);
+  }
+
+  function fit() {
+    D = Math.min(devicePixelRatio || 1, 2);
+    W = innerWidth;
+    H = innerHeight;
+    c.width = Math.round(W * D);
+    c.height = Math.round(H * D);
+    x.setTransform(D, 0, 0, D, 0, 0);
+  }
+
+  function stamp(d) {
+    return [d.getHours(), d.getMinutes(), d.getSeconds()]
+      .map(function (n) { return String(n).padStart(2, '0'); })
+      .join(':');
+  }
+
+  function wing(len, w, fill, vein) {
+    x.fillStyle = fill;
+    x.beginPath();
+    x.moveTo(0, 0);
+    x.bezierCurveTo(len * 0.18, -w * 1.05, len * 0.55, -w * 1.1, len * 0.92, -w * 0.35);
+    x.quadraticCurveTo(len * 1.02, 0, len * 0.92, w * 0.35);
+    x.bezierCurveTo(len * 0.55, w * 1.1, len * 0.18, w * 1.05, 0, 0);
+    x.fill();
+    if (vein) {
+      x.strokeStyle = vein;
+      x.lineWidth = Math.max(0.8, len * 0.01);
+      x.beginPath();
+      x.moveTo(len * 0.12, 0);
+      x.bezierCurveTo(len * 0.4, -w * 0.12, len * 0.7, w * 0.08, len * 0.94, 0);
+      x.stroke();
+    }
+  }
+
+  function drawWing(cx, cy, angle, len, w, fill, vein) {
+    var t = th();
+    x.save();
+    x.translate(cx, cy);
+    x.rotate(angle);
+    x.shadowColor = t.shadow;
+    x.shadowBlur = 10;
+    x.shadowOffsetY = 4;
+    wing(len, w, fill, vein);
+    x.restore();
+  }
+
+  /** Fixed labellum; minute spots settle; second nectar rises. */
+  function labellum(len, w, minute, secF, t) {
+    var fill = secF / 60;
+
+    x.fillStyle = t.lip;
+    x.beginPath();
+    x.moveTo(0, 0);
+    x.bezierCurveTo(len * 0.2, -w * 0.7, len * 0.45, -w * 1.15, len * 0.7, -w * 0.85);
+    x.bezierCurveTo(len * 0.95, -w * 0.4, len * 1.05, 0, len * 0.95, w * 0.4);
+    x.bezierCurveTo(len * 0.7, w * 0.85, len * 0.45, w * 1.15, len * 0.2, w * 0.7);
+    x.closePath();
+    x.fill();
+
+    /* Soft empty throat guide */
+    var empty = x.createLinearGradient(0, 0, len * 0.85, 0);
+    empty.addColorStop(0, t.throatDeep);
+    empty.addColorStop(0.55, t.throatMid);
+    empty.addColorStop(1, t.throatPale);
+    x.globalAlpha = 0.22;
+    x.fillStyle = empty;
+    x.beginPath();
+    x.moveTo(len * 0.08, 0);
+    x.bezierCurveTo(len * 0.3, -w * 0.35, len * 0.55, -w * 0.45, len * 0.78, -w * 0.15);
+    x.quadraticCurveTo(len * 0.82, 0, len * 0.78, w * 0.15);
+    x.bezierCurveTo(len * 0.55, w * 0.45, len * 0.3, w * 0.35, len * 0.08, 0);
+    x.fill();
+    x.globalAlpha = 1;
+
+    /* Nectar rise — quiet vertical fill along the throat */
+    if (fill > 0) {
+      x.save();
+      x.beginPath();
+      x.moveTo(len * 0.08, 0);
+      x.bezierCurveTo(len * 0.3, -w * 0.35, len * 0.55, -w * 0.45, len * 0.78, -w * 0.15);
+      x.quadraticCurveTo(len * 0.82, 0, len * 0.78, w * 0.15);
+      x.bezierCurveTo(len * 0.55, w * 0.45, len * 0.3, w * 0.35, len * 0.08, 0);
+      x.clip();
+
+      var riseEnd = len * (0.1 + fill * 0.72);
+      var nectar = x.createLinearGradient(0, 0, riseEnd, 0);
+      nectar.addColorStop(0, t.throatDeep);
+      nectar.addColorStop(0.5, t.throatMid);
+      nectar.addColorStop(0.88, t.nectar);
+      nectar.addColorStop(1, t.nectarHi);
+      x.fillStyle = nectar;
+      x.globalAlpha = 0.85;
+      x.fillRect(0, -w, riseEnd, w * 2);
+      x.globalAlpha = 1;
+      x.fillStyle = t.nectarHi;
+      x.beginPath();
+      x.ellipse(riseEnd - len * 0.02, 0, len * 0.028, w * 0.1, 0, 0, TAU);
+      x.fill();
+      x.restore();
+    }
+
+    /* Minute spots — Phalaenopsis freckles settling on the lip */
+    for (var i = 0; i < MINUTE_SPOTS; i++) {
+      var row = Math.floor(i / 12);
+      var col = i % 12;
+      var u = 0.28 + (col / 11) * 0.52;
+      var v = ((row % 2 ? 1 : -1) * (0.12 + Math.floor(row / 2) * 0.18)) +
+        ((col % 3) - 1) * 0.04;
+      var sx = len * u;
+      var sy = w * v * 1.1;
+      var sr = len * (0.012 + (row % 3) * 0.004);
+      var settled = i < minute;
+      var settling = i === minute;
+
+      x.beginPath();
+      x.ellipse(sx, sy, sr, sr * 0.75, 0.2, 0, TAU);
+      if (settled) {
+        x.fillStyle = t.spot;
+        x.fill();
+      } else if (settling) {
+        x.fillStyle = t.spotEmpty;
+        x.fill();
+        x.strokeStyle = t.spot;
+        x.lineWidth = 0.9;
+        x.globalAlpha = 0.55;
+        x.stroke();
+        x.globalAlpha = 1;
+      } else {
+        x.fillStyle = t.spotEmpty;
+        x.fill();
+      }
+    }
+  }
+
+  function column(cx, cy, r, t) {
+    x.save();
+    x.translate(cx, cy);
+    var g = x.createLinearGradient(0, -r, 0, r);
+    g.addColorStop(0, t.columnTop);
+    g.addColorStop(1, t.columnBot);
+    x.fillStyle = g;
+    x.beginPath();
+    x.ellipse(0, 0, r * 0.5, r * 0.88, 0, 0, TAU);
+    x.fill();
+    x.fillStyle = t.pollinia;
+    x.beginPath();
+    x.arc(0, -r * 0.5, r * 0.28, 0, TAU);
+    x.fill();
+    x.restore();
+  }
+
+  /**
+   * Twelve freckles distributed across the fixed wings — hour = blushed count.
+   * Positions are in world space relative to flower center.
+   */
+  function hourFreckles(cx, cy, r, openCount, t) {
+    var spots = [
+      { a: -Math.PI / 2, d: 0.72 },
+      { a: -Math.PI / 2, d: 0.95 },
+      { a: -0.35, d: 0.85 },
+      { a: -0.35, d: 1.15 },
+      { a: -0.35, d: 1.35 },
+      { a: Math.PI + 0.35, d: 0.85 },
+      { a: Math.PI + 0.35, d: 1.15 },
+      { a: Math.PI + 0.35, d: 1.35 },
+      { a: Math.PI * 0.78, d: 0.75 },
+      { a: Math.PI * 0.78, d: 0.95 },
+      { a: Math.PI * 1.22, d: 0.75 },
+      { a: Math.PI * 1.22, d: 0.95 }
+    ];
+    for (var i = 0; i < HOUR_SPOTS; i++) {
+      var sp = spots[i];
+      var px = cx + Math.cos(sp.a) * r * sp.d;
+      var py = cy + Math.sin(sp.a) * r * sp.d * 0.92;
+      var pr = r * (0.028 + (i % 3) * 0.006);
+      var on = i < openCount;
+      x.beginPath();
+      x.ellipse(px, py, pr, pr * 0.8, sp.a, 0, TAU);
+      if (on) {
+        x.fillStyle = t.freckle;
+        x.fill();
+      } else {
+        x.fillStyle = t.freckleSoft;
+        x.fill();
+      }
+    }
+  }
+
+  function bg(cx, cy, t) {
+    var g = x.createRadialGradient(cx, cy * 0.65, 30, cx, cy, Math.max(W, H) * 0.85);
+    g.addColorStop(0, t.bg[0]);
+    g.addColorStop(0.55, t.bg[1]);
+    g.addColorStop(1, t.bg[2]);
+    x.fillStyle = g;
+    x.fillRect(0, 0, W, H);
+
+    x.fillStyle = t.mist;
+    for (var i = 0; i < 4; i++) {
+      x.beginPath();
+      x.ellipse(cx + (i - 1.5) * W * 0.12, cy - H * (0.12 + i * 0.04), W * 0.35, H * 0.08, 0, 0, TAU);
+      x.fill();
+    }
+
+    x.fillStyle = t.grain;
+    for (var n = 0; n < 70; n++) {
+      x.fillRect((n * 97) % W, (n * 53) % H, 1.5, 1.5);
+    }
+  }
+
+  function draw() {
+    if (document.hidden) { raf = 0; return; }
+    var d = new Date();
+    var v = stamp(d);
+    var h12 = d.getHours() % 12;
+    var m = d.getMinutes();
+    var s = d.getSeconds();
+    var secF = reduced ? s : s + d.getMilliseconds() / 1000;
+    var key = v.slice(0, 5);
+    var t = th();
+    var cx = W * 0.5;
+    var cy = H * 0.48;
+    var r = Math.min(W, H) * 0.2;
+    var openCount = h12 === 0 ? 12 : h12;
+
+    bg(cx, cy, t);
+
+    /* Fixed specimen morphology — no rotating hands */
+    drawWing(cx, cy, -Math.PI / 2, r * 1.12, r * 0.4, t.cream, t.vein);
+    drawWing(cx, cy, Math.PI * 0.78, r * 1.0, r * 0.34, t.blush, t.vein);
+    drawWing(cx, cy, Math.PI * 1.22, r * 1.0, r * 0.34, t.blush, t.vein);
+    drawWing(cx, cy, -0.35, r * 1.4, r * 0.68, t.cream, t.vein);
+    drawWing(cx, cy, Math.PI + 0.35, r * 1.4, r * 0.68, t.cream, t.vein);
+
+    x.save();
+    x.translate(cx, cy + r * 0.04);
+    x.rotate(Math.PI / 2);
+    x.shadowColor = t.shadow;
+    x.shadowBlur = 8;
+    labellum(r * 1.0, r * 0.38, m, secF, t);
+    x.restore();
+
+    column(cx, cy, r * 0.22, t);
+    hourFreckles(cx, cy, r, openCount, t);
+
+    exact.textContent = 'Local time ' + v;
+    exact.dateTime = v;
+    var hourLabel = h12 || 12;
+    c.setAttribute(
+      'aria-label',
+      'Orchid clock, ' + t.name + ' theme, ' + v +
+        '. ' + openCount + ' of twelve wing freckles blushed for hour ' + hourLabel +
+        ', ' + m + ' labellum spots settled for the minute, throat nectar risen to second ' + s +
+        '. Click or press Space or P to cycle palettes.'
+    );
+    if (key !== last) {
+      last = key;
+      live.textContent =
+        'Local time ' + key +
+        '. ' + openCount + ' freckles blushed for hour ' + hourLabel +
+        ', ' + m + ' lip spots settled.';
+    }
+    raf = requestAnimationFrame(draw);
+  }
+
+  function cycleTheme() {
+    themeIndex = (themeIndex + 1) % THEMES.length;
+    try { localStorage.setItem('orchid.theme', String(themeIndex)); } catch (ignore) {}
+    applyTheme();
+    live.textContent = THEMES[themeIndex].name + ' orchid palette selected.';
+  }
+
+  c.addEventListener('click', cycleTheme);
+  c.addEventListener('keydown', function (e) {
+    if (e.code === 'Space' || e.key === 'p' || e.key === 'P') {
+      e.preventDefault();
+      cycleTheme();
+    }
+  });
+  matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', function (e) {
+    reduced = e.matches;
+  });
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+      if (raf) cancelAnimationFrame(raf);
+      raf = 0;
+    } else if (!raf) raf = requestAnimationFrame(draw);
+  });
+  addEventListener('resize', fit);
+  applyTheme();
+  fit();
+  raf = requestAnimationFrame(draw);
+})();
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+{
+  "name": "orchid-clock",
+  "author": "Luke Steuber",
+  "version": "1.0.0",
+  "private": true,
+  "keywords": [
+    "pebble-app"
+  ],
+  "dependencies": {},
+  "pebble": {
+    "displayName": "Orchid Clock",
+    "companyName": "Luke Steuber",
+    "uuid": "f7009e56-3676-4fec-b78a-4bef6019d2e8",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "targetPlatforms": [
+      "basalt",
+      "chalk",
+      "diorite",
+      "emery",
+      "flint",
+      "gabbro"
+    ],
+    "watchapp": {
+      "watchface": true
+    },
+    "messageKeys": [],
+    "resources": {
+      "media": [
+        {
+          "type": "raw",
+          "name": "ART",
+          "file": "basalt.bin",
+          "targetPlatforms": [
+            "basalt"
+          ]
+        },
+        {
+          "type": "raw",
+          "name": "ART",
+          "file": "chalk.bin",
+          "targetPlatforms": [
+            "chalk"
+          ]
+        },
+        {
+          "type": "raw",
+          "name": "ART",
+          "file": "diorite.bin",
+          "targetPlatforms": [
+            "diorite"
+          ]
+        },
+        {
+          "type": "raw",
+          "name": "ART",
+          "file": "emery.bin",
+          "targetPlatforms": [
+            "emery"
+          ]
+        },
+        {
+          "type": "raw",
+          "name": "ART",
+          "file": "flint.bin",
+          "targetPlatforms": [
+            "flint"
+          ]
+        },
+        {
+          "type": "raw",
+          "name": "ART",
+          "file": "gabbro.bin",
+          "targetPlatforms": [
+            "gabbro"
+          ]
+        },
+        {
+          "type": "bitmap",
+          "name": "MENU_ICON",
+          "file": "menu-icon.png",
+          "menuIcon": true
+        }
+      ]
+    }
+  }
+}
