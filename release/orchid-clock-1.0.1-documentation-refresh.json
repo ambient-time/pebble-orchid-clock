@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.1",
+  "changedMembers": [
+    "evidence/README.md"
+  ],
+  "changedMemberSHA256": {
+    "before": "7fe5934f8060863982216a7cd33de198eefc6821d69dd3aef73d8fab03500108",
+    "after": "ee8d753a36d16a68e013c3b062d62b3367d942ddee650f4149c651e372c82eec"
+  },
+  "previousSourceZip": "orchid-clock-1.0.1-source-before-doc-refresh.zip",
+  "previousSourceZipSHA256": "8ccfc730a2fcda18da518cf88c40965d2f50ffd674c9e5aa52a7e838c5b0c480",
+  "sourceZip": "orchid-clock-1.0.1-source.zip",
+  "sourceZipSHA256": "b9bb2a03e30d50cdc812471a884779729f6eb0700e9a6291409988afca7a5044",
+  "pbwSHA256": "6e305b2d1d9a519e67e1eb8ccab5ff0c26e0511386f64da033d5b81f743fdcd4",
+  "allOtherMembersByteIdentical": true,
+  "unchangedMemberCount": 99,
+  "unchangedMembersSHA256": "9eeed72da7dc144cee0654f3eb04c3c02a2b97bb6ff4914189ecd6d99fddf303",
+  "scope": "Only evidence/README.md changed inside the portable source ZIP. Production PBWs, native captures, source code, resources, tests, metadata, and pinned references remain byte-identical.",
+  "independentSourceBuild": {
+    "proof": "../evidence/independent-build.json",
+    "proofSHA256": "04f4d6d3401734d901ec2667af4d8ba3484e40cbc37f4bd107573573a9522972",
+    "hostTestsPassed": true,
+    "sixTargetBuildPassed": true
+  }
+}

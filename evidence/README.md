@@ -13,10 +13,11 @@ The captures show changing seconds and natural noon and midnight rollovers.
 Each target logged four frames over approximately 4.2 seconds. Capture checks
 compare each requested pose with the latest native frame log.
 
-Logged render times ranged from 2 to 31 milliseconds, with at least 61,148
-bytes of free heap. The visual review covers the hero and a second pose from
-each target at native size. The source silhouette, hour marks, nectar, and direct time
-readout remain visible on round, rectangular, color, and monochrome screens.
+Logged render times ranged from 1 to 32 milliseconds, with at least 61,388
+bytes of free heap. `correction.json` records visual inspection of five poses
+on every target at native size. The flower silhouette, hour and minute marks,
+and nectar remain in their original positions on round, rectangular, color,
+and monochrome screens. Version 1.0.1 removes the digital caption.
 
 The release archive includes the source, artwork, tests, and this evidence.
 The separate independent-build report records a build from the extracted
