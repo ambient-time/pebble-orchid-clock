@@ -1,0 +1,380 @@
+{
+  "version": "1.0.1",
+  "pbwSHA256": "6e305b2d1d9a519e67e1eb8ccab5ff0c26e0511386f64da033d5b81f743fdcd4",
+  "previousRelease": "orchid-clock-1.0.0.pbw",
+  "previousPBWSHA256": "22afcbd93b0c86fb77eadaa4df6f6a6652b2ee7162beee46a203dcad8b271c45",
+  "uuid": "f7009e56-3676-4fec-b78a-4bef6019d2e8",
+  "removedVisuals": [
+    "digital hour:minute caption"
+  ],
+  "resourcePayloads": {
+    "basalt": {
+      "identicalToPreviousRelease": true,
+      "sha256": "2f77c7a599c228e616dbabaef1df9dcfce64d643af167e22d19e18f0b3e315b2"
+    },
+    "chalk": {
+      "identicalToPreviousRelease": true,
+      "sha256": "3ecd89c94869cd43a86b7234c53c5a32e33cb966617397e256bf07ac08e58dde"
+    },
+    "diorite": {
+      "identicalToPreviousRelease": true,
+      "sha256": "0126d2e7a57de40fd4633c54d7c5172bcea53684cddacb567a9822d73f021cf0"
+    },
+    "emery": {
+      "identicalToPreviousRelease": true,
+      "sha256": "0950a77a803c40d23e9537b878826b5e59cfaa5a43bc972dced7e9d403b09cce"
+    },
+    "flint": {
+      "identicalToPreviousRelease": true,
+      "sha256": "0126d2e7a57de40fd4633c54d7c5172bcea53684cddacb567a9822d73f021cf0"
+    },
+    "gabbro": {
+      "identicalToPreviousRelease": true,
+      "sha256": "8c11e3c2efb7c7c4a0e526462afea89230bbc860201869f0cfeb9010e64fd7eb"
+    }
+  },
+  "pinnedReferences": {
+    "reference/owner-reference.png": "46fd15bb3bf633830480843c018158bb34de8f05b7107320b279a27e9ae91d40",
+    "reference/provenance.json": "55de0749266b6f99d64b48135ba65c6c2a2150137ed42e36f1abb6428d20d3fd",
+    "reference/source.html": "41af7d27088e6b0d3a2ee872969c04add7f6927190b6b250b93f830115bd7b86"
+  },
+  "checkedAt": "2026-09-07T05:50:43.175117+00:00",
+  "scope": "Native resource payload comparison with the prior release. Host tests verify the retained time mappings. Current native captures and independent source rebuild are recorded separately.",
+  "fixedPosePixelComparisons": {
+    "basalt": {
+      "hero": {
+        "previousPNG_SHA256": "228728bd31173821136d6d880f4b8948616f0dda1af67dea15ff41ac20a88b5f",
+        "currentPNG_SHA256": "98ed324607a1faa47e4a8b607310f99f5d8a621b870bd572af120adde93501c1",
+        "changedPixelBounds": [
+          55,
+          148,
+          89,
+          159
+        ],
+        "onlyCaptionRegionChanged": true
+      },
+      "quarter": {
+        "previousPNG_SHA256": "afbf8ebd8447f14a53326f7e4dd75731c67eb0d6ec4d3ff273e88c171677a4fd",
+        "currentPNG_SHA256": "3b81b7460a3f2ca44b2b6beb9beb397ec48cfc508c9290c9f8c48256e1623445",
+        "changedPixelBounds": [
+          55,
+          148,
+          89,
+          159
+        ],
+        "onlyCaptionRegionChanged": true
+      },
+      "evening": {
+        "previousPNG_SHA256": "d23faafd531f9e016849b53ecf7b9dff948b1d7f8aba9d54af9f9626325d7ef8",
+        "currentPNG_SHA256": "403ceb385173dbf703f3b46e305642e631fd0cecd00e427d4ddaa421b359b60f",
+        "changedPixelBounds": [
+          56,
+          148,
+          89,
+          159
+        ],
+        "onlyCaptionRegionChanged": true
+      }
+    },
+    "chalk": {
+      "hero": {
+        "previousPNG_SHA256": "01afffecd759be5db66851bda750152bea65e9e842ce8dbd19f1dc69d3527ea5",
+        "currentPNG_SHA256": "9ded7ed0ea3959cd2ca7f2550d301143339c10b8ab2e11a23ac5a97c1e88e28d",
+        "changedPixelBounds": [
+          73,
+          155,
+          107,
+          166
+        ],
+        "onlyCaptionRegionChanged": true
+      },
+      "quarter": {
+        "previousPNG_SHA256": "2cd3620afd59e374d6e83d275d3ba7ad8d273d3f3614d7d476e0aa8a02d7e7f1",
+        "currentPNG_SHA256": "def982d845bc4f44c6fbe710abe54ddc0c21003e702f141b99209d7553f580e7",
+        "changedPixelBounds": [
+          73,
+          155,
+          107,
+          166
+        ],
+        "onlyCaptionRegionChanged": true
+      },
+      "evening": {
+        "previousPNG_SHA256": "9f79f77ad2c6e716b77ac48991dfee2831224ca23f41b75ba8e5ebcb37884bab",
+        "currentPNG_SHA256": "e94eb676d17f869ba974d062d9dd81b419141d8368977055442c0990e6a87dc4",
+        "changedPixelBounds": [
+          74,
+          155,
+          107,
+          166
+        ],
+        "onlyCaptionRegionChanged": true
+      }
+    },
+    "diorite": {
+      "hero": {
+        "previousPNG_SHA256": "714b46c8ffcdf14863889b70eef1773db2651b556664d30addb2c4c3ffda4a26",
+        "currentPNG_SHA256": "22c8b77ab14c4a7f0cb961136d2ed66a2f03a1cdadd75b0ee3187eed7ab13589",
+        "changedPixelBounds": [
+          55,
+          148,
+          89,
+          159
+        ],
+        "onlyCaptionRegionChanged": true
+      },
+      "quarter": {
+        "previousPNG_SHA256": "2d2e6333bb9c333ef184dbf8eee8f7d54924c1ae6c5dcfa0544c50e6642f751f",
+        "currentPNG_SHA256": "4641f38c5f62b13528c73ef36816ea4440218b711f0e7e157031702dae8f1dfc",
+        "changedPixelBounds": [
+          55,
+          148,
+          89,
+          159
+        ],
+        "onlyCaptionRegionChanged": true
+      },
+      "evening": {
+        "previousPNG_SHA256": "69ce5d090c485d67dfe07d30535ea18272a472382c6c414d32b5d9a03c8d7766",
+        "currentPNG_SHA256": "5b6d1c89a6795a69080665904431ea1484f50746c07ea6caf2331b2d3438d601",
+        "changedPixelBounds": [
+          56,
+          148,
+          89,
+          159
+        ],
+        "onlyCaptionRegionChanged": true
+      }
+    },
+    "emery": {
+      "hero": {
+        "previousPNG_SHA256": "b3cb74c6ea4a8428fe36d5508aeab0c5df29609dbc214e26439ebec2af01d21b",
+        "currentPNG_SHA256": "ee7de4c56cd2997203a58f58460c3d3415906995210a9f95c7db5a70cc022a99",
+        "changedPixelBounds": [
+          76,
+          200,
+          123,
+          218
+        ],
+        "onlyCaptionRegionChanged": true
+      },
+      "quarter": {
+        "previousPNG_SHA256": "801baff86c8d18014c23dd7ec6412863de3ca54807fedcbf504ef8a1d091426b",
+        "currentPNG_SHA256": "2a0410e4db70bd7b62390c0429c7182ddb6505bfa2a60cac108c0e3e178d7e88",
+        "changedPixelBounds": [
+          76,
+          200,
+          123,
+          218
+        ],
+        "onlyCaptionRegionChanged": true
+      },
+      "evening": {
+        "previousPNG_SHA256": "e51333f83fee346d758fc3e83d75d3c53c670acc727c0bb4753fb720b52e6e72",
+        "currentPNG_SHA256": "3211684b17bdc6e12ee58500dff8356e229651567618969dfa26a0e96a7c841f",
+        "changedPixelBounds": [
+          77,
+          200,
+          123,
+          218
+        ],
+        "onlyCaptionRegionChanged": true
+      }
+    },
+    "flint": {
+      "hero": {
+        "previousPNG_SHA256": "714b46c8ffcdf14863889b70eef1773db2651b556664d30addb2c4c3ffda4a26",
+        "currentPNG_SHA256": "22c8b77ab14c4a7f0cb961136d2ed66a2f03a1cdadd75b0ee3187eed7ab13589",
+        "changedPixelBounds": [
+          55,
+          148,
+          89,
+          159
+        ],
+        "onlyCaptionRegionChanged": true
+      },
+      "quarter": {
+        "previousPNG_SHA256": "2d2e6333bb9c333ef184dbf8eee8f7d54924c1ae6c5dcfa0544c50e6642f751f",
+        "currentPNG_SHA256": "4641f38c5f62b13528c73ef36816ea4440218b711f0e7e157031702dae8f1dfc",
+        "changedPixelBounds": [
+          55,
+          148,
+          89,
+          159
+        ],
+        "onlyCaptionRegionChanged": true
+      },
+      "evening": {
+        "previousPNG_SHA256": "69ce5d090c485d67dfe07d30535ea18272a472382c6c414d32b5d9a03c8d7766",
+        "currentPNG_SHA256": "5b6d1c89a6795a69080665904431ea1484f50746c07ea6caf2331b2d3438d601",
+        "changedPixelBounds": [
+          56,
+          148,
+          89,
+          159
+        ],
+        "onlyCaptionRegionChanged": true
+      }
+    },
+    "gabbro": {
+      "hero": {
+        "previousPNG_SHA256": "70c5674187d49fd7f5b69011c82ad7741c6444e6329747779b96c2d9c8781bb5",
+        "currentPNG_SHA256": "efef8dad42c61517979c5c88251067c05c5c541c744ae6b020e1fcea10357ef6",
+        "changedPixelBounds": [
+          106,
+          224,
+          153,
+          242
+        ],
+        "onlyCaptionRegionChanged": true
+      },
+      "quarter": {
+        "previousPNG_SHA256": "e6fcb98e940e56195cca1d71627bcd95a8d64047dcd21095667b6152fd2b436e",
+        "currentPNG_SHA256": "38b46544c1b728341375ac9a6991dd27228f526a80c609bc07b0c8c6e57436a3",
+        "changedPixelBounds": [
+          106,
+          224,
+          153,
+          242
+        ],
+        "onlyCaptionRegionChanged": true
+      },
+      "evening": {
+        "previousPNG_SHA256": "009a7447b60eaea6fa25ebd2513557c4594c0fb64568a568382524129cba4cb7",
+        "currentPNG_SHA256": "a9dc8440e9dcfcebdfbeb3590bf6d67e739a0f29947f94ee4b630625211ac74d",
+        "changedPixelBounds": [
+          107,
+          224,
+          153,
+          242
+        ],
+        "onlyCaptionRegionChanged": true
+      }
+    }
+  },
+  "nativeVisualReview": {
+    "frames": [
+      {
+        "file": "basalt-hero.png",
+        "sha256": "98ed324607a1faa47e4a8b607310f99f5d8a621b870bd572af120adde93501c1"
+      },
+      {
+        "file": "basalt-quarter.png",
+        "sha256": "3b81b7460a3f2ca44b2b6beb9beb397ec48cfc508c9290c9f8c48256e1623445"
+      },
+      {
+        "file": "basalt-evening.png",
+        "sha256": "403ceb385173dbf703f3b46e305642e631fd0cecd00e427d4ddaa421b359b60f"
+      },
+      {
+        "file": "basalt-noon-rollover.png",
+        "sha256": "2a7327c61a919ab9bb3a329e39de567b8b29688e112e8e439beb2874f15b2207"
+      },
+      {
+        "file": "basalt-midnight-rollover.png",
+        "sha256": "2a7327c61a919ab9bb3a329e39de567b8b29688e112e8e439beb2874f15b2207"
+      },
+      {
+        "file": "chalk-hero.png",
+        "sha256": "9ded7ed0ea3959cd2ca7f2550d301143339c10b8ab2e11a23ac5a97c1e88e28d"
+      },
+      {
+        "file": "chalk-quarter.png",
+        "sha256": "def982d845bc4f44c6fbe710abe54ddc0c21003e702f141b99209d7553f580e7"
+      },
+      {
+        "file": "chalk-evening.png",
+        "sha256": "e94eb676d17f869ba974d062d9dd81b419141d8368977055442c0990e6a87dc4"
+      },
+      {
+        "file": "chalk-noon-rollover.png",
+        "sha256": "c729d64ceece751c75625df3c6fe1aeca24ed9de123a09de3a7ba0c16ea58c38"
+      },
+      {
+        "file": "chalk-midnight-rollover.png",
+        "sha256": "c729d64ceece751c75625df3c6fe1aeca24ed9de123a09de3a7ba0c16ea58c38"
+      },
+      {
+        "file": "diorite-hero.png",
+        "sha256": "22c8b77ab14c4a7f0cb961136d2ed66a2f03a1cdadd75b0ee3187eed7ab13589"
+      },
+      {
+        "file": "diorite-quarter.png",
+        "sha256": "4641f38c5f62b13528c73ef36816ea4440218b711f0e7e157031702dae8f1dfc"
+      },
+      {
+        "file": "diorite-evening.png",
+        "sha256": "5b6d1c89a6795a69080665904431ea1484f50746c07ea6caf2331b2d3438d601"
+      },
+      {
+        "file": "diorite-noon-rollover.png",
+        "sha256": "b5adbb93402668985682eff7ee9e78f5304c281a70c1d3a4c4286a84cb65657f"
+      },
+      {
+        "file": "diorite-midnight-rollover.png",
+        "sha256": "b5adbb93402668985682eff7ee9e78f5304c281a70c1d3a4c4286a84cb65657f"
+      },
+      {
+        "file": "emery-hero.png",
+        "sha256": "ee7de4c56cd2997203a58f58460c3d3415906995210a9f95c7db5a70cc022a99"
+      },
+      {
+        "file": "emery-quarter.png",
+        "sha256": "2a0410e4db70bd7b62390c0429c7182ddb6505bfa2a60cac108c0e3e178d7e88"
+      },
+      {
+        "file": "emery-evening.png",
+        "sha256": "3211684b17bdc6e12ee58500dff8356e229651567618969dfa26a0e96a7c841f"
+      },
+      {
+        "file": "emery-noon-rollover.png",
+        "sha256": "6052679227dd92b847916e3eabcf65b286d33c277c1a5adc317680578c2534d2"
+      },
+      {
+        "file": "emery-midnight-rollover.png",
+        "sha256": "6052679227dd92b847916e3eabcf65b286d33c277c1a5adc317680578c2534d2"
+      },
+      {
+        "file": "flint-hero.png",
+        "sha256": "22c8b77ab14c4a7f0cb961136d2ed66a2f03a1cdadd75b0ee3187eed7ab13589"
+      },
+      {
+        "file": "flint-quarter.png",
+        "sha256": "4641f38c5f62b13528c73ef36816ea4440218b711f0e7e157031702dae8f1dfc"
+      },
+      {
+        "file": "flint-evening.png",
+        "sha256": "5b6d1c89a6795a69080665904431ea1484f50746c07ea6caf2331b2d3438d601"
+      },
+      {
+        "file": "flint-noon-rollover.png",
+        "sha256": "b5adbb93402668985682eff7ee9e78f5304c281a70c1d3a4c4286a84cb65657f"
+      },
+      {
+        "file": "flint-midnight-rollover.png",
+        "sha256": "b5adbb93402668985682eff7ee9e78f5304c281a70c1d3a4c4286a84cb65657f"
+      },
+      {
+        "file": "gabbro-hero.png",
+        "sha256": "efef8dad42c61517979c5c88251067c05c5c541c744ae6b020e1fcea10357ef6"
+      },
+      {
+        "file": "gabbro-quarter.png",
+        "sha256": "38b46544c1b728341375ac9a6991dd27228f526a80c609bc07b0c8c6e57436a3"
+      },
+      {
+        "file": "gabbro-evening.png",
+        "sha256": "a9dc8440e9dcfcebdfbeb3590bf6d67e739a0f29947f94ee4b630625211ac74d"
+      },
+      {
+        "file": "gabbro-noon-rollover.png",
+        "sha256": "e1b696c5e385ea8c9ddc4057ea59603ea9bf606ce5ded2919388e88dfafe8e3f"
+      },
+      {
+        "file": "gabbro-midnight-rollover.png",
+        "sha256": "e1b696c5e385ea8c9ddc4057ea59603ea9bf606ce5ded2919388e88dfafe8e3f"
+      }
+    ],
+    "result": "Flower and time markings remain in their original positions on rectangular, round, color, and monochrome targets. No digital caption remains."
+  }
+}

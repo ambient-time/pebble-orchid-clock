@@ -5,7 +5,6 @@ fill for the hour. Sixty tiny spots settle along the lower petal for minutes,
 while nectar fills the throat over each minute. Noon and midnight fill all
 twelve hour freckles; the minute spots clear at the start of each hour.
 
-The small local-time readout follows the watch’s 12- or 24-hour setting.
 Color watches show white petals, blush pink, and gold nectar. Monochrome
 watches use a white flower with dark marks against black. The face updates
 once a second, pauses drawing when another app takes focus, and needs no
@@ -63,8 +62,8 @@ original file hashes.
 The specimen keeps the original Bézier wing and lower-petal shapes, twelve
 hour positions, and five rows of twelve minute spots. The flower grows to
 fit a small screen. All 72 mark centers remain distinct at each native
-resolution. The minute markings are fine detail; the readout below the flower
-gives the time at a glance.
+resolution. The minute markings are fine detail. Version 1.0.1 removes the
+added digital caption so the flower alone shows the time, as in the source.
 
 Host checks compare all mark positions with the source fixtures, verify the
 compiled coordinate tables, and check the nectar mask pixel by pixel. The

@@ -43,7 +43,7 @@ static bool background(GContext *ctx,OrchidTime t){
 }
 static void draw(Layer *layer,GContext *ctx){
  time_t epoch;uint16_t start,end;time_ms(&epoch,&start);struct tm local=*localtime(&epoch);
- OrchidTime t=orchid_time(&local);GRect bounds=layer_get_bounds(layer);
+ OrchidTime t=orchid_time(&local);
  if(!background(ctx,t)){APP_LOG(APP_LOG_LEVEL_ERROR,"Orchid artwork unavailable");return;}
  graphics_context_set_antialiased(ctx,true);
  for(int i=0;i<12;i++){
@@ -63,10 +63,6 @@ static void draw(Layer *layer,GContext *ctx){
   else graphics_draw_pixel(ctx,p);
 #endif
  }
- char exact[8];strftime(exact,sizeof(exact),clock_is_24h_style()?"%H:%M":"%I:%M",&local);
- graphics_context_set_text_color(ctx,PBL_IF_COLOR_ELSE(GColorBulgarianRose,GColorWhite));
- GFont font=fonts_get_system_font(ART_WIDTH>=200?FONT_KEY_GOTHIC_28_BOLD:FONT_KEY_GOTHIC_18_BOLD);
- graphics_draw_text(ctx,exact,font,GRect(0,CAPTION_Y-(ART_WIDTH>=200?15:10),bounds.size.w,32),GTextOverflowModeTrailingEllipsis,GTextAlignmentCenter,NULL);
  s_frames++;time_ms(NULL,&end);
  APP_LOG(APP_LOG_LEVEL_INFO,"Orchid time=%02d:%02d:%02d ms=%u heap=%lu frames=%lu",local.tm_hour,local.tm_min,local.tm_sec,(end+1000-start)%1000,(unsigned long)heap_bytes_free(),(unsigned long)s_frames);
 }

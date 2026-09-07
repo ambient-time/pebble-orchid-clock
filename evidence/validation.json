@@ -1,74 +1,74 @@
 {
-  "version": "1.0.0",
-  "pbwSHA256": "22afcbd93b0c86fb77eadaa4df6f6a6652b2ee7162beee46a203dcad8b271c45",
+  "version": "1.0.1",
+  "pbwSHA256": "6e305b2d1d9a519e67e1eb8ccab5ff0c26e0511386f64da033d5b81f743fdcd4",
   "platforms": {
     "basalt": {
-      "capturedAt": "2026-09-06T07:39:41.920646+00:00",
+      "capturedAt": "2026-09-07T05:20:37.843728+00:00",
       "loggedRenderMS": {
-        "min": 4,
+        "min": 8,
         "max": 31
       },
-      "minimumLoggedFreeHeapBytes": 61244,
+      "minimumLoggedFreeHeapBytes": 61484,
       "naturalNoonRollover": true,
       "naturalMidnightRollover": true,
       "cadenceFrames": {
         "idle": [
-          19,
-          20,
-          21
+          27,
+          28,
+          29
         ],
         "observedFrames": 4,
-        "observedWallSeconds": 4.209,
+        "observedWallSeconds": 4.205,
         "policy": "one redraw per second; no animation timer"
       }
     },
     "chalk": {
-      "capturedAt": "2026-09-06T07:37:41.311090+00:00",
+      "capturedAt": "2026-09-07T05:21:17.763382+00:00",
       "loggedRenderMS": {
-        "min": 11,
-        "max": 31
+        "min": 8,
+        "max": 28
       },
-      "minimumLoggedFreeHeapBytes": 61148,
+      "minimumLoggedFreeHeapBytes": 61388,
       "naturalNoonRollover": true,
       "naturalMidnightRollover": true,
       "cadenceFrames": {
         "idle": [
-          19,
-          20,
-          21
+          26,
+          27,
+          28
         ],
         "observedFrames": 4,
-        "observedWallSeconds": 4.203,
+        "observedWallSeconds": 4.202,
         "policy": "one redraw per second; no animation timer"
       }
     },
     "diorite": {
-      "capturedAt": "2026-09-06T07:38:33.379275+00:00",
+      "capturedAt": "2026-09-07T05:59:25.607329+00:00",
       "loggedRenderMS": {
         "min": 15,
-        "max": 28
+        "max": 32
       },
-      "minimumLoggedFreeHeapBytes": 61260,
+      "minimumLoggedFreeHeapBytes": 61484,
       "naturalNoonRollover": true,
       "naturalMidnightRollover": true,
       "cadenceFrames": {
         "idle": [
-          19,
-          20,
-          21
+          26,
+          27,
+          28
         ],
         "observedFrames": 4,
-        "observedWallSeconds": 4.21,
+        "observedWallSeconds": 4.204,
         "policy": "one redraw per second; no animation timer"
       }
     },
     "emery": {
-      "capturedAt": "2026-09-06T07:40:15.183693+00:00",
+      "capturedAt": "2026-09-07T05:59:58.962777+00:00",
       "loggedRenderMS": {
-        "min": 5,
-        "max": 10
+        "min": 4,
+        "max": 7
       },
-      "minimumLoggedFreeHeapBytes": 126276,
+      "minimumLoggedFreeHeapBytes": 126500,
       "naturalNoonRollover": true,
       "naturalMidnightRollover": true,
       "cadenceFrames": {
@@ -78,17 +78,37 @@
           21
         ],
         "observedFrames": 4,
-        "observedWallSeconds": 4.21,
+        "observedWallSeconds": 4.2,
         "policy": "one redraw per second; no animation timer"
       }
     },
     "flint": {
-      "capturedAt": "2026-09-06T07:42:10.955257+00:00",
+      "capturedAt": "2026-09-07T06:00:33.183969+00:00",
       "loggedRenderMS": {
-        "min": 2,
-        "max": 7
+        "min": 1,
+        "max": 3
       },
-      "minimumLoggedFreeHeapBytes": 61260,
+      "minimumLoggedFreeHeapBytes": 61484,
+      "naturalNoonRollover": true,
+      "naturalMidnightRollover": true,
+      "cadenceFrames": {
+        "idle": [
+          21,
+          22,
+          23
+        ],
+        "observedFrames": 4,
+        "observedWallSeconds": 4.202,
+        "policy": "one redraw per second; no animation timer"
+      }
+    },
+    "gabbro": {
+      "capturedAt": "2026-09-07T06:01:07.916667+00:00",
+      "loggedRenderMS": {
+        "min": 5,
+        "max": 15
+      },
+      "minimumLoggedFreeHeapBytes": 126236,
       "naturalNoonRollover": true,
       "naturalMidnightRollover": true,
       "cadenceFrames": {
@@ -98,27 +118,7 @@
           22
         ],
         "observedFrames": 4,
-        "observedWallSeconds": 4.21,
-        "policy": "one redraw per second; no animation timer"
-      }
-    },
-    "gabbro": {
-      "capturedAt": "2026-09-06T07:42:49.242138+00:00",
-      "loggedRenderMS": {
-        "min": 5,
-        "max": 10
-      },
-      "minimumLoggedFreeHeapBytes": 126012,
-      "naturalNoonRollover": true,
-      "naturalMidnightRollover": true,
-      "cadenceFrames": {
-        "idle": [
-          23,
-          24,
-          25
-        ],
-        "observedFrames": 4,
-        "observedWallSeconds": 4.202,
+        "observedWallSeconds": 4.205,
         "policy": "one redraw per second; no animation timer"
       }
     }
