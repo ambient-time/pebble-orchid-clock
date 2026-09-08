@@ -1,7 +1,7 @@
 {
   "name": "orchid-clock",
   "author": "Luke Steuber",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "keywords": [
     "pebble-app"
@@ -24,7 +24,10 @@
     "watchapp": {
       "watchface": true
     },
-    "messageKeys": [],
+    "messageKeys": {
+      "DIGITAL": 1,
+      "CALM": 2
+    },
     "resources": {
       "media": [
         {
@@ -82,6 +85,9 @@
           "menuIcon": true
         }
       ]
-    }
+    },
+    "capabilities": [
+      "configurable"
+    ]
   }
 }

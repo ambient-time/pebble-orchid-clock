@@ -22,7 +22,8 @@ os.environ['PATH']=toolchain+os.pathsep+os.environ['PATH']
 import png
 from pebble_tool.commands.screenshot import ScreenshotCommand
 from pebble_tool.commands.install import ToolAppInstaller
-from libpebble2.protocol.apps import AppRunState,AppRunStateStart
+from libpebble2.protocol.apps import AppRunState,AppRunStateStart,AppRunStateStop
+from libpebble2.services.appmessage import AppMessageService,Int32
 from libpebble2.protocol.logs import AppLogMessage,AppLogShippingControl
 import pebble_tool.sdk.emulator as emulator
 from libpebble2.communication.transports.qemu.protocol import QemuButton,QemuTap
@@ -127,8 +128,22 @@ def run(platform,fresh=False,record=0):
         assert any('Orchid' in line for line in logs),'No native app frame log'
         assert not any(any(term in line.lower() for term in ('crash','fault','allocation failed')) for line in logs),'Native fault logged'
         assert hashlib.sha256(PBW.read_bytes()).hexdigest()==installed_sha,'PBW changed during capture'
+        messages=AppMessageService(watch)
+        for digital in [0,1]:
+            start=len(logs)
+            messages.send_message(APP,{1:Int32(digital),2:Int32(1)})
+            time.sleep(1)
+            assert any('Face settings digital='+str(digital)+' calm=1' in line for line in logs[start:]), 'Settings not applied'
+            grab('clock-'+str(digital),(10,8,20))
+        start=len(logs)
+        watch.send_packet(AppRunState(data=AppRunStateStop(uuid=APP)))
+        time.sleep(.5)
+        watch.send_packet(AppRunState(data=AppRunStateStart(uuid=APP)))
+        time.sleep(1)
+        assert any('Face settings digital=1 calm=1' in line for line in logs[start:]), 'Settings not persisted'
+        grab('settings-restarted',(10,8,20))
         report={'platform':platform,'pbwSHA256':installed_sha,
-                'capturedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                'settingsAppliedAndPersisted':True,'capturedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),
                 'secondsChanged':True,'naturalNoonRollover':True,'naturalMidnightRollover':True,
                 'cadenceFrames':{'idle':idle,'observedFrames':cadence_delta,'observedWallSeconds':round(cadence_seconds,3),
                                  'policy':'one redraw per second; no animation timer'},'frames':frames,'poses':poses,'logs':logs,

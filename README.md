@@ -8,7 +8,10 @@ twelve hour freckles; the minute spots clear at the start of each hour.
 Color watches show white petals, blush pink, and gold nectar. Monochrome
 watches use a white flower with dark marks against black. The face updates
 once a second, pauses drawing when another app takes focus, and needs no
-phone connection, account, or settings.
+phone connection or account to tell time. Version 1.0.2 restores a bottom
+digital clock by default. Hide it in the face’s local phone settings if you
+prefer the flower alone; the choice is saved on the watch. The digits follow
+the watch’s 12/24-hour preference. This update is a local review candidate.
 
 ## Watches
 

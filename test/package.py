@@ -29,7 +29,7 @@ def main():
         assert info['versionLabel']==source['version']
         assert info['watchapp']['watchface'] is True
         assert info['companyName']=='Luke Steuber'
-        assert not info['capabilities'] and not info['appKeys']
+        assert info['capabilities']==['configurable'] and info['appKeys']=={'DIGITAL':1,'CALM':2}
         assert set(info['targetPlatforms'])==TARGETS
         for platform in sorted(TARGETS):
             manifest=json.loads(z.read(platform+'/manifest.json'))
@@ -39,7 +39,7 @@ def main():
                 assert crc32(data)==item['crc'],f'{platform} {key} CRC'
             report=json.loads((ROOT/f'build/evidence/{platform}-report.json').read_text())
             assert report['pbwSHA256']==digest,f'{platform} evidence is stale'
-            assert report['secondsChanged'] and report['naturalNoonRollover'] and report['naturalMidnightRollover']
+            assert report['secondsChanged'] and report['naturalNoonRollover'] and report['naturalMidnightRollover'] and report['settingsAppliedAndPersisted']
             cadence=report['cadenceFrames']
             assert cadence['observedWallSeconds']>=4, f'{platform} cadence window is too short'
             assert .7<=cadence['observedFrames']/cadence['observedWallSeconds']<=1.5, f'{platform} observed cadence'
@@ -51,11 +51,11 @@ def main():
             reports[platform]=report
     out=ROOT/'release';out.mkdir(exist_ok=True)
     shutil.copy2(pbw,out/f'orchid-clock-{source["version"]}.pbw')
-    evidence=ROOT/'evidence';evidence.mkdir(exist_ok=True)
+    evidence=ROOT/'evidence'/source['version'];evidence.mkdir(parents=True,exist_ok=True)
     summary={'version':source['version'],'pbwSHA256':digest,'platforms':{}}
     for platform,report in reports.items():
         archived=dict(report)
-        archived['frames']=['evidence/'+Path(f).name for f in report['frames'] if not Path(f).stem.endswith('-boot')]
+        archived['frames']=['evidence/'+source['version']+'/'+Path(f).name for f in report['frames'] if not Path(f).stem.endswith('-boot')]
         (evidence/f'{platform}-report.json').write_text(json.dumps(archived,indent=2)+'\n')
         for name in report['frames']:
             file=ROOT/name
@@ -75,7 +75,7 @@ def main():
     # Independent-build proof names this archive's hash and stays outside it.
     excluded={'independent-build.json','independent-build.log'}
     for directory in ('src','resources','reference','test','tools','evidence'):
-        files.extend(p for p in (ROOT/directory).rglob('*') if p.is_file()
+        files.extend(p for p in (evidence if directory=='evidence' else ROOT/directory).rglob('*') if p.is_file()
                      and '__pycache__' not in p.parts and p.name not in excluded)
     with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
         for file in sorted(files):z.write(file,file.relative_to(ROOT))

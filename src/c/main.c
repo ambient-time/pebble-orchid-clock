@@ -1,5 +1,8 @@
 // Copyright 2026 Luke Steuber. MIT License.
 #include <pebble.h>
+#include <string.h>
+#define DEFAULT_DIGITAL true
+#include "settings.h"
 #include "orchid.h"
 #include "geometry.h"
 static Window *s_window;
@@ -63,9 +66,11 @@ static void draw(Layer *layer,GContext *ctx){
   else graphics_draw_pixel(ctx,p);
 #endif
  }
+ digital_draw(ctx,layer_get_bounds(layer),&local,PBL_IF_COLOR_ELSE(GColorBlack,GColorWhite));
  s_frames++;time_ms(NULL,&end);
  APP_LOG(APP_LOG_LEVEL_INFO,"Orchid time=%02d:%02d:%02d ms=%u heap=%lu frames=%lu",local.tm_hour,local.tm_min,local.tm_sec,(end+1000-start)%1000,(unsigned long)heap_bytes_free(),(unsigned long)s_frames);
 }
+static void settings_changed(void){if(s_layer)layer_mark_dirty(s_layer);}
 static void tick(struct tm *t,TimeUnits units){if(s_focused&&s_layer)layer_mark_dirty(s_layer);}
 static void focus(bool focused){s_focused=focused;if(focused&&s_layer)layer_mark_dirty(s_layer);}
 static void load(Window *window){
@@ -73,7 +78,7 @@ static void load(Window *window){
  layer_set_update_proc(s_layer,draw);layer_add_child(window_get_root_layer(window),s_layer);
 }
 static void unload(Window *window){layer_destroy(s_layer);s_layer=NULL;}
-int main(void){
+int main(void){settings_init();
  s_window=window_create();window_set_background_color(s_window,GColorBlack);
  window_set_window_handlers(s_window,(WindowHandlers){.load=load,.unload=unload});s_focused=true;window_stack_push(s_window,false);
  tick_timer_service_subscribe(SECOND_UNIT,tick);app_focus_service_subscribe(focus);app_event_loop();

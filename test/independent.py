@@ -37,13 +37,14 @@ def main(pebble):
             assert all(not Path(n).is_absolute() and '..' not in Path(n).parts for n in z.namelist())
             z.extractall(checkout)
         process=subprocess.run(['make','build','PEBBLE='+pebble],cwd=checkout,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
-        (ROOT/'evidence/independent-build.log').write_text(process.stdout)
+        (ROOT/'evidence'/version/'independent-build.log').write_text(process.stdout)
         assert process.returncode==0,'Independent build failed; see evidence/independent-build.log'
         rebuilt=checkout/'build'/f'{slug}.pbw'
         proof={'sourceZipSHA256':sha(archive),'productionPBWSHA256':sha(production),'independentPBWSHA256':sha(rebuilt),
                'sdk':'4.33.1','hostTestsPassed':True,'sixTargetBuildPassed':True,'payloadChecks':{}}
         with zipfile.ZipFile(production) as a,zipfile.ZipFile(rebuilt) as b:
             assert json.loads(a.read('appinfo.json'))==json.loads(b.read('appinfo.json'))
+            assert a.read('pebble-js-app.js') == b.read('pebble-js-app.js'), 'Phone settings code changed'
             for target in TARGETS:
                 old=a.read(target+'/pebble-app.bin');new=b.read(target+'/pebble-app.bin')
                 assert normalize(old)==normalize(new),target+' code differs'
@@ -51,7 +52,7 @@ def main(pebble):
                 proof['payloadChecks'][target]={'codeIdenticalOutsideCRCResourceTimestampAndGNUBuildID':True,
                     'resourcesIdentical':True,'changedCodeByteOffsets':[i for i,(x,y) in enumerate(zip(old,new)) if x!=y]}
         proof['scope']='Independent unpacked source archive. SDK build metadata can change the rebuilt PBW hash. No physical-watch or publication check.'
-        (ROOT/'evidence/independent-build.json').write_text(json.dumps(proof,indent=2)+'\n')
+        (ROOT/'evidence'/version/'independent-build.json').write_text(json.dumps(proof,indent=2)+'\n')
         print(json.dumps(proof,indent=2))
     finally:shutil.rmtree(temp)
 if __name__=='__main__':
